@@ -6,27 +6,27 @@
 ==========================
 在IDE里点选“文件”->“首选项”
 
-<p><img src=".\resources\1-0"></p>
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/1-0.PNG)
 
 点选“附加开发板管理器网址”右侧的按钮
 
-![avatar](.\resources\1-1.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/1-1.PNG)
 
 输入 http://arduino.esp8266.com/stable/package_esp8266com_index.json 并保存
 
 点选“工具”->“开发板xxxxxx”->“开发板管理器”，等待平台索引更新
 
-![avatar](.\resources\1-2.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/1-2.PNG)
 
 翻到页面最下方，找到“esp8266 by ESP8266 Community”，选择版本2.0.0安装
 
-![avatar](.\resources\1-3.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/1-3.PNG)
 
 安装完毕后打开文件管理器，输入
 
 %USERPROFILE%\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.0.0\tools\sdk\include （如找不到则把%USERPROFILE%改成当前用户的主文件夹，比如你的账户叫Administrator，就改成C:\Users\Administrator）
 
-![avatar](.\resources\1-4.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/1-4.PNG)
 
 修改“user_interface.h”，在文件末尾#endif前添加如下内容
 ```cpp
@@ -36,11 +36,11 @@ void wifi_unregister_send_pkt_freedom_cb(void);
 int wifi_send_pkt_freedom(uint8 *buf, int len, bool sys_seq);
 ```
 
-![avatar](.\resources\1-5.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/1-5.PNG)
 
 保存后重启Arduino IDE，点选“工具”->“开发板xxxxxx”->“NodeMCU 1.0(ESP-12E module)”
 
-![avatar](.\resources\1-6.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/1-6.PNG)
 
 0x02 NodeMCU驱动程序
 ====================
@@ -50,17 +50,17 @@ CP2102芯片： https://www.silabs.com/products/development-tools/software/usb-t
 
 插入NodeMCU，等待驱动程序安装完成后打开设备管理器，记住使用的端口（图例为CP2102的芯片，COM5）
 
-![avatar](.\resources\2-1.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/2-1.PNG)
 
 在Arduino IDE里“工具”->“端口”选择对应端口
 
-![avatar](.\resources\2-2.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/2-2.PNG)
 
 0x03 编程示例：创建软AP
 =======================
 点选“文件”->“示例”->“ESP8266WiFi”->“WiFiAccessPoint”
 
-![avatar](.\resources\3-1.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/3-1.PNG)
 
 根据个人喜好做如下修改：
 ```cpp
@@ -81,7 +81,7 @@ IPAddress myIP(192, 168, 1, 1);//这里修改热点IP地址
 
 点击左上角箭头样图标，程序将自动编译并下载到NodeMCU里
 
-![avatar](.\resources\3-2.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/3-2.PNG)
 
 手机连接上建立的热点，打开http://192.168.1.1/即可访问页面
 
