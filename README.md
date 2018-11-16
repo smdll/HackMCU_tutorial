@@ -1,6 +1,6 @@
 0x00 Arduino IDE环境安装
 ========================
-在 https://www.arduino.cc/ 上找到Windows的最新版本，下载安装。
+在 https://www.arduino.cc/en/Main/Software 上找到Windows的最新版本，下载Installer安装或ZIP解压都可以。
 
 0x01 ESP8266 SDK安装与配置
 ==========================
@@ -56,11 +56,24 @@ CP2102芯片： https://www.silabs.com/products/development-tools/software/usb-t
 
 ![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/2-2.PNG)
 
-0x03 编程示例：创建软AP
+0x03 基础语法
+=========
+Arduino IDE使用两个入口函数：setup()和loop()，大致语法与C++类似，具体内置函数列表在“帮助”->“参考”。setup()和loop()编译后结构大致如下：
+```cpp
+int main() {
+	setup();
+	while(true)
+		loop();
+}
+```
+
+注：微处理器不存在程序运行结束，当程序崩溃后只能手动重置或通过看门狗(WDT)定时重置。
+
+0x04 编程示例：创建软AP
 =======================
 点选“文件”->“示例”->“ESP8266WiFi”->“WiFiAccessPoint”
 
-![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/3-1.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/4-1.PNG)
 
 根据个人喜好做如下修改：
 ```cpp
@@ -81,9 +94,30 @@ IPAddress myIP(192, 168, 1, 1);//这里修改热点IP地址
 
 点击左上角箭头样图标，程序将自动编译并下载到NodeMCU里
 
-![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/3-2.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/4-2.PNG)
 
-手机连接上建立的热点，打开http://192.168.1.1/即可访问页面
+手机或电脑连接上建立的热点，打开 http://192.168.1.1/ 即可访问页面
 
-0x04 一点进阶操作：DNS劫持
+0x05 一点进阶操作：DNS劫持
 ==========================
+头文件添加DNSServer库
+```cpp
+#include <DNSServer.h>
+```
+
+创建全局实例
+```cpp
+DNSServer dns;
+```
+
+setup函数内添加初始化语句
+```cpp
+dns.start(53, "*", myIP);
+```
+
+loop函数内添加循环处理请求
+```cpp
+dns.processNextRequest();
+```
+
+手机或电脑连接上热点后，访问所有非HTTPS协议的页面时均跳转到 http://192.168.1.1/
