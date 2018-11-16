@@ -50,15 +50,19 @@ CP2102芯片： https://www.silabs.com/products/development-tools/software/usb-t
 
 插入NodeMCU，等待驱动程序安装完成后打开设备管理器，记住使用的端口（图例为CP2102的芯片，COM5）
 
-![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/2-1.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/2-0.PNG)
 
 在Arduino IDE里“工具”->“端口”选择对应端口
 
-![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/2-2.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/2-1.PNG)
 
 0x03 基础语法
 =========
-Arduino IDE使用两个入口函数：setup()和loop()，大致语法与C++类似，具体内置函数列表在“帮助”->“参考”。setup()和loop()编译后结构大致如下：
+Arduino IDE使用两个入口函数：setup()和loop()，大致语法与C++类似，具体内置函数列表在“帮助”->“参考”。
+
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/3-0.PNG)
+
+setup()和loop()编译后结构大致如下：
 ```cpp
 int main() {
 	setup();
@@ -73,7 +77,7 @@ int main() {
 =======================
 点选“文件”->“示例”->“ESP8266WiFi”->“WiFiAccessPoint”
 
-![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/4-1.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/4-0.PNG)
 
 根据个人喜好做如下修改：
 ```cpp
@@ -94,7 +98,7 @@ IPAddress myIP(192, 168, 1, 1);//这里修改热点IP地址
 
 点击左上角箭头样图标，程序将自动编译并下载到NodeMCU里
 
-![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/4-2.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/4-1.PNG)
 
 手机或电脑连接上建立的热点，打开 http://192.168.1.1/ 即可访问页面
 
@@ -121,3 +125,11 @@ dns.processNextRequest();
 ```
 
 手机或电脑连接上热点后，访问所有非HTTPS协议的页面时均跳转到 http://192.168.1.1/
+
+0x06 Deauthenticaion攻击
+========================
+未完待续。。。
+
+0x07 KARMA(Probe request attack)攻击
+====================================
+未完待续。。。
