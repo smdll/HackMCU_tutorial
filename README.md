@@ -180,7 +180,7 @@ void loop() {
 ====================================
 Beacon帧是802.11管理帧之一，热点在运行时会定期广播Beacon帧，用于公布SSID、频道等参数。Beacon Flooding攻击会不断发送大量随机Beacon帧，用于干扰客户端的扫描列表，甚至能够使某些客户端崩溃。GitHub上有<a href="https://github.com/spacehuhn/esp8266_beaconSpam/">esp8266_beaconSpam</a>等项目，我自己也写了一个攻击演示<a href="https://github.com/smdll/beaconFlooding_demo">beaconFlooding_demo</a>。
 
-![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/8-0.PNG)
+![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/8-0.png)
 
 # 0x09 一些链接
 
