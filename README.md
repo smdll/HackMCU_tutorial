@@ -182,7 +182,28 @@ Beacon帧是802.11管理帧之一，热点在运行时会定期广播Beacon帧�
 
 ![image](https://github.com/smdll/HackMCU_tutorial/raw/master/resources/8-0.png)
 
-# 0x09 一些链接
+# 0x09 microPython内核
+
+### 0x00 准备工作
+
+在电脑上安装Python环境，2.7或3.6都可以。用pip命令安装esptool：
+
+```bash
+pip install esptool
+```
+
+在<a href="https://micropython.org/download">这里</a>找到Firmware for ESP8266 boards，下载latest固件。连接NodeMCU，确定串口号以后，CMD里运行以下命令（将COM3替换成自己的串口号，esp8266xxxx.bin改成你下载的那个文件）：
+
+```bash
+esptool --port COM3 erase_flash
+esptool --port COM3 --baud 460800 write_flash --flash_size=detect 0 esp8266xxxx.bin --verify
+```
+
+下载完成后，打开串口监视器就可以当作Python解释器来使用了。
+
+注：如果下载过程中出现错误，则把460800波特率修改成115200或更低。如果下载后程序没有运行，则在write_flash后加上”-fm dio“参数。
+
+# 0x0A 一些链接
 
 ESP8266本身以及连接各种模块可以开发出更多东西，完全取决于你的想象力！
 
